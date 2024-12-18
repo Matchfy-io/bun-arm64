@@ -2,6 +2,8 @@ FROM arm64v8/alpine:latest
 
 ARG BUN_VERSION=latest
 
+RUN apk --no-cache add libstdc++ gcc libgcc build-base
+
 RUN apk --no-cache add ca-certificates curl dirmngr gpg gpg-agent unzip \
     && arch="$(apk --print-arch)" \
     && case "${arch##*-}" in \
